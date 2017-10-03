@@ -29,6 +29,11 @@ body {
   transition: transform 0.5s;
 }
 
+.fixed-nav .site-wrap {
+  transform: scale(1);
+
+}
+
 header {
   // text-align: center;
   height:50vh;
@@ -54,6 +59,13 @@ nav {
   z-index: 1;
 }
 
+// remember, we are adding the class to the body, not the nav itself ( so that we can target other child
+// elements if we want to)
+.fixed-nav nav {
+  position: fixed;
+  box-shadow: 0 5px rgba(0, 0, 0, 0.1);
+}
+
 nav ul {
   margin: 0;
   padding:0;
@@ -73,9 +85,14 @@ li.logo {
   max-width:0;
   overflow: hidden;
   background: white;
-  transition: all .5s;
+  transition: all 1.5s;
   font-weight: 600;
   font-size: 30px;
+}
+
+.fixed-nav li.logo {
+  // we have to choose a max-width because you can't animate something to go from width: 0 ---> auto
+  max-width: 500px;
 }
 
 li.logo a {
